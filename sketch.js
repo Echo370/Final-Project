@@ -1,26 +1,43 @@
-// RPG battles
+// RPG battle
 // Corey Klassen
-//Feb, 2nd, 2021
+// Feb, 2nd, 2021
 
-let enemyhealth = 100
+
+let StartGame = true;
 let health1 = 100;
 let health2 = 100;
 let health3 = 100;
 let health4 = 100;
+let enemy = false;
+let character1 = true;
+let character2 = true;
+let character3 = true;
+let character4 = true;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
+
+
+
 function keyPressed() {
   //Start screen
   if (key === ("Enter")){
-    background("gray");
+    if (StartGame === true) {
+    background("white");
+    fill("black");
+    textSize(50);
+    text('Press the space bar to start!',450, 350);
+    StartGame = false;
+    }
   }
   if (key === " ") {
-    //Top Right Enemy health barsill("green");
+    //Top Right Enemy health bars
+    let enemy = true;
+    background("gray");
     fill("green");
-    strokeWeight(4);
+    strokeWeight(2);
     rect(1349, 50, 50, 50);
     rect(1299, 50, 50, 50);
     rect(1249, 50, 50, 50);
@@ -28,12 +45,8 @@ function keyPressed() {
     rect(1149, 50, 50, 50);
 
     //Ground sprite
-    fill(color(220, 0, 0));
-    stroke(51, 0, 0);
-    strokeWeight(4);
+    fill(color(32, 78, 100));
     ellipse(1100, 300, 300, 100);
-    stroke("black");
-    strokeWeight(1);
 
     //Enemy Sprite
     fill("Black");
@@ -45,9 +58,11 @@ function keyPressed() {
   //Bottom left Character health bars
   //Character 1 health bar, Ryuji
   if (key === "r") {
+    if (character1 === true) {
+    character2 = false;
+    character3 = false;
+    character4 = false;
     fill("yellow");
-    strokeWeight(4);
-    stroke("black");
     rect(50, 649, 50, 50,);
     rect(100, 649, 50, 50,);
     rect(150, 649, 50, 50,);
@@ -56,16 +71,17 @@ function keyPressed() {
 
     //Move selections
     fill(255, 153, 51);
-    strokeWeight(2);
-    stroke("black");
-    rect(50, 300, 170, 50);
-    rect(50, 240, 170, 50);
-    rect(50, 360, 170, 50);
+    rect(50, 300, 150, 50);
+    rect(50, 240, 150, 50);
+    rect(50, 360, 150, 50);
+    fill("black");
+    textSize(20);
+    text('2.Hard knukle',54, 320, 150, 50);
+    text('1.Flame Remix',54, 260, 150, 50);
+    text('3.Inferno Buster',54, 380, 150, 50);
 
     //Ground sprite
-    fill(color(232, 185, 0));
-    stroke(232, 116, 0);
-    strokeWeight(4);
+    fill(color(32, 78, 100));
     ellipse(370, 540, 300, 100);
 
     //Character Sprite
@@ -73,13 +89,16 @@ function keyPressed() {
     ellipse(370, 500, 100, 100);
     fill("black");
     ellipse(370, 500, 50, 50);
+    }
 
   }
   //Character 2 health bar, Joker
   if (key === "j") {
+    if (character2 === true) {
+    character1 = false;
+    character3 = false;
+    character4 = false;
     fill("purple");
-    strokeWeight(4)
-    stroke("black")
     rect(50, 649, 50, 50,);
     rect(100, 649, 50, 50,);
     rect(150, 649, 50, 50,);
@@ -87,17 +106,18 @@ function keyPressed() {
     rect(250, 649, 50, 50,);
 
     //Move selections
-    fill(102, 0, 0);
-    strokeWeight(2);
-    stroke("black")
-    rect(50, 300, 170, 50);
-    rect(50, 240, 170, 50);
-    rect(50, 360, 170, 50);
+    fill(150, 0, 0);
+    rect(50, 300, 150, 50);
+    rect(50, 240, 150, 50);
+    rect(50, 360, 150, 50);
+    fill("black");
+    textSize(22);
+    text('2.Triple Kick',54, 320, 150, 50);
+    text('1.Wing Attack',54, 260, 150, 50);
+    text('3.Tri Nova',54, 380, 150, 50);
 
     //Ground sprite
     fill(color(32, 78, 100));
-    stroke();
-    strokeWeight(4);
     ellipse(370, 540, 300, 100);
 
     //Character sprite
@@ -105,13 +125,16 @@ function keyPressed() {
     ellipse(370, 500, 100, 100);
     fill("black");
     ellipse(370, 500, 50, 50);
+    }
 
   }
-  //Character 3 health bar, mnn
-  if (key === "m") {
+  //Character 3 health bar, Ann
+  if (key === "a") {
+    if (character3 === true) {
+    character1 = false;
+    character2 = false;
+    character4 = false;
     fill("red");
-    strokeWeight(4);
-    stroke("black");
     rect(50, 649, 50, 50,);
     rect(100, 649, 50, 50,);
     rect(150, 649, 50, 50,);
@@ -120,15 +143,17 @@ function keyPressed() {
 
     //Move selections
     fill(153, 0, 76);
-    strokeWeight(2);
-    rect(50, 300, 170, 50);
-    rect(50, 240, 170, 50);
-    rect(50, 360, 170, 50);
+    rect(50, 300, 150, 50);
+    rect(50, 240, 150, 50);
+    rect(50, 360, 150, 50);
+    fill("black")
+    textSize(17);
+    text('2.Wave Dance',54, 320, 150, 50);
+    text('1.Drown',54, 260, 150, 50);
+    text('3.Abyssal Depths',54, 380, 150, 50);
 
     //Ground sprite
-    fill(color(255, 153, 153));
-    stroke(255, 51, 51);
-    strokeWeight(4);
+    fill(color(32, 78, 100));
     ellipse(370, 540, 300, 100);
 
     //Character Sprite
@@ -136,11 +161,16 @@ function keyPressed() {
     ellipse(370, 500, 100, 100);
     fill("pink");
     ellipse(370, 500, 50, 50);
+    }
+  
   }
   //Character 4 health bar, Yusuke
   if (key === "y") {
+    if (character4 === true) {
+    character1 = false;
+    character2 = false;
+    character3 = false;
     fill("blue");
-    strokeWeight(4);
     rect(50, 649, 50, 50,);
     rect(100, 649, 50, 50,);
     rect(150, 649, 50, 50,);
@@ -149,25 +179,73 @@ function keyPressed() {
 
     //Move selections
     fill(0, 76, 153);
-    strokeWeight(2);
-    rect(50, 300, 170, 50);
-    rect(50, 240, 170, 50);
-    rect(50, 360, 170, 50);
+    rect(50, 300, 150, 50);
+    rect(50, 240, 150, 50);
+    rect(50, 360, 150, 50);
+    fill("black");
+    textSize(20);
+    text('2.Slash',54, 320, 150, 50);
+    text('1.Twilight Time',54, 260, 150, 50);
+    text('3.Luna Blast',54, 380, 150, 50);
 
     //Ground sprite
     fill(color(32, 78, 100));
-    stroke(0, 0, 51);
-    strokeWeight(4);
     ellipse(370, 540, 300, 100);
 
     //Character Sprite
     fill("Blue");
-    strokeWeight(1);
-    stroke("black");
     ellipse(370, 500, 100, 100);
     fill("White");
     ellipse(370, 500, 50, 50);
+    }
   }
+    
+  //Selecting a move
+  //Move 1
+  if (key === "1") {
+    if (character1 && enemy === true) {
+      enemyhealth = enemyhealth - 20;
+    }
+    else if (character2 && enemy === true) {
+      enemyhealth = enemyhealth - 25;
+    }
+    else if (character3 && enemy === true) {
+      enemyhealth = enemyhealth - 15;
+    }
+    else if (character4 && enemy === true) {
+      enemyhealth = enemyhealth - 30;
+    }
+  }
+    
+  //Move 2
+  if (key === "2") {
+    if (character1 && enemy === true) {
+      enemyhealth = enemyhealth - 40;
+    }
+    else if (character2 && enemy === true) {
+      enemyhealth = enemyhealth - 50;
+    }
+    else if (character3 && enemy === true) {
+      enemyhealth = enemyhealth - 35;
+    }
+    else if (character4 && enemy === true) {
+      enemyhealth = enemyhealth -45;
+    }
+  }
+    
+  //Move3
+  if (key === "3") {
+    if (character1 && enemy === true) {
+      enemyhealth = enemyhealth - 60;
+    }
+    else if (character2 && enemy === true) {
+      enemyhealth = enemyhealth - 70;
+    }
+    else if (character3 && enemy === true) {
+      enemyhealth = enemyhealth - 55;
+    }
+    else if (character4 && enemy === true) {
+      enemyhealth = enemyhealth - 65;
+    }
+  } 
 }
-
-
