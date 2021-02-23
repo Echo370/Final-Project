@@ -1,16 +1,15 @@
 // RPG battle
 // Corey Klassen
-// Feb, 2nd, 2021
+// Feb, 23rd, 2021
 
 
 let StartGame = true;
-let enemyhealth = 140;
-let enemyAttack;
+let enemyhealth = 200;
 let health1 = 100;
 let health2 = 100;
 let health3 = 100;
 let health4 = 100;
-let enemy = false;
+let enemy = true;
 let character1 = true;
 let character2 = true;
 let character3 = true;
@@ -18,9 +17,12 @@ let character4 = true;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  background("white");
+  fill("black");
+  textSize(50);
+  text('Press the space bar to start!',450, 350);
+  StartGame = false;
 }
-
-
 
 //Checks Enemy Health
 function CheckEnemyHealth() {
@@ -28,32 +30,39 @@ function CheckEnemyHealth() {
     noStroke();
     fill("gray");
     rect(1349, 50, 50, 50);
+    EnemyTurn();
   }
   if (enemyhealth <= 120) {
     noStroke();
     fill("gray");
     rect(1299, 50, 50, 50);
+    EnemyTurn();
   }
   if (enemyhealth <= 80) {
     noStroke();
     fill("gray")
     rect(1249, 50, 50, 50);
+    EnemyTurn();
   }
     if (enemyhealth <= 40) {
     noStroke();
     fill("gray")
     rect(1199, 50, 50, 50);
+    EnemyTurn();
   }
     if (enemyhealth <= 0) {
     noStroke();
     fill("gray");
     rect(1149, 50, 50, 50);
+    fill("black");
+    textSize(50);
+    text('You win!',500, 50, 200, 200);
   }
 }
 
 //Checks your health
 function CheckYourHealth() {
-  if(health1 <= 80) {
+  if(health1 <= 80 ){
     noStroke();
     fill("gray");
     rect(50, 649, 50, 50,);
@@ -77,33 +86,47 @@ function CheckYourHealth() {
     noStroke();
     fill("gray");
     rect(250, 649, 50, 50,);
+    fill("black");
+    textSize(50);
+    text('You lose',500, 50, 200, 200);   
   }
 }
 
 
 //CPU Chooses a random attack
 function EnemyTurn() {
-  let enemyAttack = random(3);
-  if (enemyAttack === 2) {
-    health1 - 20;
-  }
+  health1 = health1 - 15;
+  CheckYourHealth();
+  //let enemyattack = random(2);
+  //if (enemyattack === 0) {
+    //health1 = health1 - 10;
+    //CheckYourHealth();
+  //}
+  //if (enemyattack === 1) {
+    //health1 = health1 - 20;
+    //CheckYourHealth();
+ // }
+  //if (enemyattack === 2) {
+    //health1 = health1 - 15;
+    //CheckYourHealth();
+  //}
 }
 
 
 function keyPressed() {
   //Start screen
-  if (key === ("Enter")){
-    if (StartGame === true) {
-    background("white");
-    fill("black");
-    textSize(50);
-    text('Press the space bar to start!',450, 350);
-    StartGame = false;
-    }
-  }
+  // if (key === ("Enter")){
+  //   if (StartGame === true) {
+  //   background("white");
+  //   fill("black");
+  //   textSize(50);
+  //   text('Press the space bar to start!',450, 350);
+  //   StartGame = false;
+  //   }
+  // }
   if (key === " ") {
     //Top Right Enemy health bars
-    let enemy = true;
+    //let enemy = true;
     background("gray");
     fill("green");
     strokeWeight(2);
@@ -262,60 +285,75 @@ function keyPressed() {
     ellipse(370, 540, 300, 100);
 
     //Character Sprite
-    displayShrievil()
-    //fill("Blue");
-    //ellipse(370, 500, 100, 100);
-    //fill("White");
-    //ellipse(370, 500, 50, 50);
+    fill("Blue");
+    ellipse(370, 500, 100, 100);
+    fill("White");
+    ellipse(370, 500, 50, 50);
     }
   }
     
   //Selecting a move
   //Move 1
-  if (key === "z") {
+  if (key === "1") {
     if (character1 && enemy === true) {
-      enemyhealth = enemyhealth - 20;
+      enemyhealth = enemyhealth - 10;
+      health1 = health1 + 20;
+      CheckEnemyHealth();
     }
     else if (character2 && enemy === true) {
-      enemyhealth = enemyhealth - 25;
+      enemyhealth = enemyhealth - 14;
+      CheckEnemyHealth();
     }
     else if (character3 && enemy === true) {
-      enemyhealth = enemyhealth - 15;
+      enemyhealth = enemyhealth - 7;
+      CheckEnemyHealth();
     }
     else if (character4 && enemy === true) {
-      enemyhealth = enemyhealth - 30;
+      enemyhealth = enemyhealth - 10;
+      health4 = health4 + 20;
+      CheckEnemyHealth();
     }
   }
     
   //Move 2
-  if (key === "y") {
+  if (key === "2") {
     if (character1 && enemy === true) {
-      enemyhealth = enemyhealth - 40;
+      enemyhealth = enemyhealth - 23;
+      CheckEnemyHealth();
     }
     else if (character2 && enemy === true) {
       enemyhealth = enemyhealth - 50;
+      CheckEnemyHealth();
     }
     else if (character3 && enemy === true) {
       enemyhealth = enemyhealth - 35;
+      CheckEnemyHealth();
     }
     else if (character4 && enemy === true) {
-      enemyhealth = enemyhealth -45;
+      enemyhealth = enemyhealth -15;
+      CheckEnemyHealth();
     }
   }
     
   //Move3
-  if (key === "x") {
+  if (key === "3") {
     if (character1 && enemy === true) {
-      enemyhealth = enemyhealth - 60;
+      enemyhealth = enemyhealth - 15;
+      CheckEnemyHealth();
     }
     else if (character2 && enemy === true) {
       enemyhealth = enemyhealth - 70;
+      CheckEnemyHealth();
     }
     else if (character3 && enemy === true) {
       enemyhealth = enemyhealth - 55;
+      CheckEnemyHealth();
     }
     else if (character4 && enemy === true) {
-      enemyhealth = enemyhealth - 65;
+      enemyhealth = enemyhealth - 25;
+      health4 = health4 - 25;
+      CheckEnemyHealth();
     }
-  } 
+  }
+  // Health pot?
 }
