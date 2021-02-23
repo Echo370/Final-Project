@@ -4,6 +4,8 @@
 
 
 let StartGame = true;
+let enemyhealth = 140;
+let enemyAttack;
 let health1 = 100;
 let health2 = 100;
 let health3 = 100;
@@ -19,6 +21,73 @@ function setup() {
 }
 
 
+
+//Checks Enemy Health
+function CheckEnemyHealth() {
+  if (enemyhealth <= 160) {
+    noStroke();
+    fill("gray");
+    rect(1349, 50, 50, 50);
+  }
+  if (enemyhealth <= 120) {
+    noStroke();
+    fill("gray");
+    rect(1299, 50, 50, 50);
+  }
+  if (enemyhealth <= 80) {
+    noStroke();
+    fill("gray")
+    rect(1249, 50, 50, 50);
+  }
+    if (enemyhealth <= 40) {
+    noStroke();
+    fill("gray")
+    rect(1199, 50, 50, 50);
+  }
+    if (enemyhealth <= 0) {
+    noStroke();
+    fill("gray");
+    rect(1149, 50, 50, 50);
+  }
+}
+
+//Checks your health
+function CheckYourHealth() {
+  if(health1 <= 80) {
+    noStroke();
+    fill("gray");
+    rect(50, 649, 50, 50,);
+  }
+  if(health1 <= 60) {
+    noStroke();
+    fill("gray");
+    rect(100, 649, 50, 50,);
+  }
+  if(health1 <= 40) {
+    noStroke();
+    fill("gray");
+    rect(150, 649, 50, 50,);
+  }
+  if(health1 <= 20) {
+    noStroke();
+    fill("gray");
+    rect(200, 649, 50, 50,);
+  }
+  if(health1 <= 0) {
+    noStroke();
+    fill("gray");
+    rect(250, 649, 50, 50,);
+  }
+}
+
+
+//CPU Chooses a random attack
+function EnemyTurn() {
+  let enemyAttack = random(3);
+  if (enemyAttack === 2) {
+    health1 - 20;
+  }
+}
 
 
 function keyPressed() {
@@ -193,16 +262,17 @@ function keyPressed() {
     ellipse(370, 540, 300, 100);
 
     //Character Sprite
-    fill("Blue");
-    ellipse(370, 500, 100, 100);
-    fill("White");
-    ellipse(370, 500, 50, 50);
+    displayShrievil()
+    //fill("Blue");
+    //ellipse(370, 500, 100, 100);
+    //fill("White");
+    //ellipse(370, 500, 50, 50);
     }
   }
     
   //Selecting a move
   //Move 1
-  if (key === "1") {
+  if (key === "z") {
     if (character1 && enemy === true) {
       enemyhealth = enemyhealth - 20;
     }
@@ -218,7 +288,7 @@ function keyPressed() {
   }
     
   //Move 2
-  if (key === "2") {
+  if (key === "y") {
     if (character1 && enemy === true) {
       enemyhealth = enemyhealth - 40;
     }
@@ -234,7 +304,7 @@ function keyPressed() {
   }
     
   //Move3
-  if (key === "3") {
+  if (key === "x") {
     if (character1 && enemy === true) {
       enemyhealth = enemyhealth - 60;
     }
