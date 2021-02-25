@@ -1,20 +1,23 @@
 // RPG battle
 // Corey Klassen
 // Feb, 23rd, 2021
+//things that are needed;timer for moves to be shown, enemy random attack, balance game, active health
 
 
 let StartGame = true;
-let enemyhealth = 200;
-let health1 = 100;
-let health2 = 100;
-let health3 = 100;
-let health4 = 100;
+let enemyhealth = 150;
+let health1 = 150;
+let health2 = 150;
+let health3 = 150;
+let health4 = 150;
 let enemy = true;
 let character1 = false;
 let character2 = false;
 let character3 = false;
 let character4 = false;
 let charaAlive = false;
+let activeHealth;
+
 
 
 function setup() {
@@ -34,7 +37,7 @@ function setup() {
   fill(160 ,160, 160);
   rect(640, 25, 150, 50);
   fill(160 ,160, 160);
-  rect(490, 90, 450, 130);
+  rect(490, 90, 460, 130);
   //Apllies Text
   fill("black");
   textSize(50);
@@ -49,9 +52,9 @@ function setup() {
   text('Press y to play as Chara4', 25, 460, 200, 200);
   //Explains rules
   text('You will choose 1 character to fight against the enemy. If either you or the enemys health reaches 0 its game over.',
-  500, 100, 410, 300);
+  500, 100, 420, 300);
   text('Each Character has different moves that do different damage and some have side effects. To use moves during the battle press 1, 2, or 3 to attack.',
-  500, 150, 430, 300);
+  500, 150, 443, 300);
   //Goes into characters moves
   textSize(12);
   text('Health = 100', 25, 120, 200, 200);
@@ -80,25 +83,25 @@ function setup() {
 //Checks Enemy Health
 //Enemy and Character health needs to be fixed 
 function CheckEnemyHealth() {
-  if (enemyhealth <= 160) {
+  if (enemyhealth <= 120) {
     noStroke();
     fill("gray");
     rect(1349, 50, 50, 50);
     EnemyTurn();
   }
-  if (enemyhealth <= 120) {
+  if (enemyhealth <= 90) {
     noStroke();
     fill("gray");
     rect(1299, 50, 50, 50);
     EnemyTurn();
   }
-  if (enemyhealth <= 80) {
+  if (enemyhealth <= 60) {
     noStroke();
     fill("gray")
     rect(1249, 50, 50, 50);
     EnemyTurn();
   }
-    if (enemyhealth <= 40) {
+    if (enemyhealth <= 30) {
     noStroke();
     fill("gray")
     rect(1199, 50, 50, 50);
@@ -119,22 +122,22 @@ function CheckEnemyHealth() {
 
 //Checks your health
 function CheckYourHealth() {
-  if(health1 <= 80 ){
+  if(health1 <= 120 ){
     noStroke();
     fill("gray");
     rect(50, 649, 50, 50,);
   }
-  if(health1 <= 60) {
+  if(health1 <= 90) {
     noStroke();
     fill("gray");
     rect(100, 649, 50, 50,);
   }
-  if(health1 <= 40) {
+  if(health1 <= 60) {
     noStroke();
     fill("gray");
     rect(150, 649, 50, 50,);
   }
-  if(health1 <= 20) {
+  if(health1 <= 30) {
     noStroke();
     fill("gray");
     rect(200, 649, 50, 50,);
@@ -161,16 +164,6 @@ function EnemyTurn() {
 
 
 function keyPressed() {
-  //Start screen
-  // if (key === ("Enter")){
-  //   if (StartGame === true) {
-  //   background("white");
-  //   fill("black");
-  //   textSize(50);
-  //   text('Press the space bar to start!',450, 350);
-  //   StartGame = false;
-  //   }
-  // }
   if (key === " ") {
     //Top Right Enemy health bars
     //let enemy = true;

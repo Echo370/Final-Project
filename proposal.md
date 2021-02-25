@@ -3,14 +3,14 @@ Creating a RPG battle system, the player will be facing a CPU where they will be
 them to see who can win. The players team will consist of 3 to 4 characters they will use in battle, each with different stats, moves, and abilities. Stats will consist of Attack, HP, Defence, Elemental attack, and Elemental defence. Each character will be given 3 move slots. And lastly each character will have their own ablility unique to them that improves performance in battle. Will be a max of 4 to 6 characters used in battle, the player and cpu will both have 3 to 4 usable characters. Battle will end when either the players team or CPUs team can no longer fight (characters have 0 HP).
 ## Needs to have
 - Background
-- Character Sprits
 - Clickable buttons that represent the moves
 - HP bar 
 - Indication of move being used 
 - Moves do a certain amount of damage against specific characters
-- Set stats given to characters
 - Start screen
+- end screen
 ## Nice to have
+- Character Sprits
 - Background Music
 - Move sound effects 
 - Improved move animation / all animations in general
