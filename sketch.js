@@ -14,18 +14,13 @@ let character1 = false;
 let character2 = false;
 let character3 = false;
 let character4 = false;
-
 let charaAlive = false;
 
-//let character1 = true;
-//let character2 = true;
-//let character3 = true;
-//let character4 = true;
 
 function setup() {
   // Start Screen
   createCanvas(windowWidth, windowHeight);
-  background("white");
+  background(196, 202, 255);
   fill(160 ,160, 160);
   rect(25, 25, 90, 50);
   fill(255, 178, 105);
@@ -83,6 +78,7 @@ function setup() {
 }
 
 //Checks Enemy Health
+//Enemy and Character health needs to be fixed 
 function CheckEnemyHealth() {
   if (enemyhealth <= 160) {
     noStroke();
@@ -109,12 +105,15 @@ function CheckEnemyHealth() {
     EnemyTurn();
   }
     if (enemyhealth <= 0) {
+    StartGame = false;
     noStroke();
     fill("gray");
     rect(1149, 50, 50, 50);
+    fill("green");
+    rect(600, 350, 500, 200);
     fill("black");
     textSize(50);
-    text('You win!',500, 50, 200, 200);
+    text('You win!, please play again',630, 400, 400, 400);
   }
 }
 
@@ -141,12 +140,15 @@ function CheckYourHealth() {
     rect(200, 649, 50, 50,);
   }
   if(health1 <= 0) {
+    StartGame = false;
     noStroke();
     fill("gray");
     rect(250, 649, 50, 50,);
+    fill("red");
+    rect(600, 350, 500, 200);
     fill("black");
     textSize(50);
-    text('You lose',500, 50, 200, 200);   
+    text('You lose, please play again',630, 400, 400, 400);   
   }
 }
 
@@ -196,10 +198,13 @@ function keyPressed() {
   //Bottom left Character health bars
   //Character 1 health bar, Ryuji
   if (key === "r") {
-    if(charaAlive === false) {
-      charaAlive = true;
-      character1 = true;
+    if(StartGame === true) {
+      if(charaAlive === false) {
+        charaAlive = true;
+        character1 = true;
+      }
     }
+
     if (character1 && StartGame === true) {
       fill("yellow");
       rect(50, 649, 50, 50,);
@@ -233,12 +238,15 @@ function keyPressed() {
   }
   //Character 2 health bar, Joker
   if (key === "j") {
-    if(charaAlive === false) {
-      charaAlive = true;
-      character2 = true;
+    if(StartGame === true) {
+      if(charaAlive === false) {
+        charaAlive = true;
+        character2 = true;
+      }
     }
+
     if (character2 && StartGame === true) {
-    fill("purple");
+    fill(51, 255, 51);
     rect(50, 649, 50, 50,);
     rect(100, 649, 50, 50,);
     rect(150, 649, 50, 50,);
@@ -246,7 +254,7 @@ function keyPressed() {
     rect(250, 649, 50, 50,);
 
     //Move selections
-    fill(150, 0, 0);
+    fill(51, 255, 51);
     rect(50, 300, 150, 50);
     rect(50, 240, 150, 50);
     rect(50, 360, 150, 50);
@@ -270,12 +278,15 @@ function keyPressed() {
   }
   //Character 3 health bar, Ann
   if (key === "a") {
-    if(charaAlive === false) {
-      charaAlive = true;
-      character3 = true;
+    if(StartGame === true) {
+      if(charaAlive === false) {
+        charaAlive = true;
+        character3 = true;
+      }
     }
+
     if (character3 && StartGame === true) {
-      fill("red");
+      fill(85, 145, 213);
       rect(50, 649, 50, 50,);
       rect(100, 649, 50, 50,);
       rect(150, 649, 50, 50,);
@@ -283,7 +294,7 @@ function keyPressed() {
       rect(250, 649, 50, 50,);
 
       //Move selections
-      fill(153, 0, 76);
+      fill(85, 145, 213);
       rect(50, 300, 150, 50);
       rect(50, 240, 150, 50);
       rect(50, 360, 150, 50);
@@ -307,12 +318,15 @@ function keyPressed() {
   }
   //Character 4 health bar, Yusuke
   if (key === "y") {
-    if(charaAlive === false) {
-      charaAlive = true;
-      character4 = true;
+    if(StartGame === true) {
+      if(charaAlive === false) {
+        charaAlive = true;
+        character4 = true;
+      }
     }
+
     if (character4 && StartGame === true) {
-      fill("blue");
+      fill(169, 60, 252);
       rect(50, 649, 50, 50,);
       rect(100, 649, 50, 50,);
       rect(150, 649, 50, 50,);
@@ -320,7 +334,7 @@ function keyPressed() {
       rect(250, 649, 50, 50,);
 
       //Move selections
-      fill(0, 76, 153);
+      fill(169, 60, 252);
       rect(50, 300, 150, 50);
       rect(50, 240, 150, 50);
       rect(50, 360, 150, 50);
