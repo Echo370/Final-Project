@@ -4,19 +4,26 @@
 
 
 let StartGame = true;
-let enemyhealth = 140;
+let enemyhealth = 200;
 let health1 = 100;
 let health2 = 100;
 let health3 = 100;
 let health4 = 100;
 let enemy = true;
-let character1 = true;
-let character2 = true;
-let character3 = true;
-let character4 = true;
+let character1 = false;
+let character2 = false;
+let character3 = false;
+let character4 = false;
+
+let charaAlive = false;
+
+//let character1 = true;
+//let character2 = true;
+//let character3 = true;
+//let character4 = true;
 
 function setup() {
-  //Sets background
+  // Start Screen
   createCanvas(windowWidth, windowHeight);
   background("white");
   fill(160 ,160, 160);
@@ -71,7 +78,6 @@ function setup() {
   text('Move 1/Slash = 15dmg', 25, 500, 200, 200);
   text('Move 2/Twilight Time = 10dmg,20 + health', 25, 520, 250, 200);
   text('Move 3/Luna Blast = 50dmg, 25 - recoil', 25, 540, 250, 200);
-
 
   StartGame = false;
 }
@@ -144,24 +150,11 @@ function CheckYourHealth() {
   }
 }
 
-
 //CPU Chooses a random attack
 function EnemyTurn() {
   health1 = health1 - 15;
   CheckYourHealth();
-  //let enemyattack = random(2);
-  //if (enemyattack === 0) {
-    //health1 = health1 - 10;
-    //CheckYourHealth();
-  //}
-  //if (enemyattack === 1) {
-    //health1 = health1 - 20;
-    //CheckYourHealth();
- // }
-  //if (enemyattack === 2) {
-    //health1 = health1 - 15;
-    //CheckYourHealth();
-  //}
+  //Needs to be random attack
 }
 
 
@@ -179,6 +172,7 @@ function keyPressed() {
   if (key === " ") {
     //Top Right Enemy health bars
     //let enemy = true;
+    StartGame = true;
     background("gray");
     fill("green");
     strokeWeight(2);
@@ -202,46 +196,48 @@ function keyPressed() {
   //Bottom left Character health bars
   //Character 1 health bar, Ryuji
   if (key === "r") {
-    if (character1 === true) {
-    character2 = false;
-    character3 = false;
-    character4 = false;
-    fill("yellow");
-    rect(50, 649, 50, 50,);
-    rect(100, 649, 50, 50,);
-    rect(150, 649, 50, 50,);
-    rect(200, 649, 50, 50,);
-    rect(250, 649, 50, 50,);
+    if(charaAlive === false) {
+      charaAlive = true;
+      character1 = true;
+    }
+    if (character1 && StartGame === true) {
+      fill("yellow");
+      rect(50, 649, 50, 50,);
+      rect(100, 649, 50, 50,);
+      rect(150, 649, 50, 50,);
+      rect(200, 649, 50, 50,);
+      rect(250, 649, 50, 50,);
 
-    //Move selections
-    fill(255, 153, 51);
-    rect(50, 300, 150, 50);
-    rect(50, 240, 150, 50);
-    rect(50, 360, 150, 50);
-    fill("black");
-    textSize(20);
-    text('2.Hard knukle',54, 320, 150, 50);
-    text('1.Flame Remix',54, 260, 150, 50);
-    text('3.Inferno Buster',54, 380, 150, 50);
+      //Move selections
+      fill(255, 153, 51);
+      rect(50, 300, 150, 50);
+      rect(50, 240, 150, 50);
+      rect(50, 360, 150, 50);
+      fill("black");
+      textSize(20);
+      text('2.Hard knukle',54, 320, 150, 50);
+      text('1.Flame Remix',54, 260, 150, 50);
+      text('3.Inferno Buster',54, 380, 150, 50);
 
-    //Ground sprite
-    fill(color(32, 78, 100));
-    ellipse(370, 540, 300, 100);
+      //Ground sprite
+      fill(color(32, 78, 100));
+      ellipse(370, 540, 300, 100);
 
-    //Character Sprite
-    fill("yellow");
-    ellipse(370, 500, 100, 100);
-    fill("black");
-    ellipse(370, 500, 50, 50);
+      //Character Sprite
+      fill("yellow");
+      ellipse(370, 500, 100, 100);
+      fill("black");
+      ellipse(370, 500, 50, 50);
     }
 
   }
   //Character 2 health bar, Joker
   if (key === "j") {
-    if (character2 === true) {
-    character1 = false;
-    character3 = false;
-    character4 = false;
+    if(charaAlive === false) {
+      charaAlive = true;
+      character2 = true;
+    }
+    if (character2 && StartGame === true) {
     fill("purple");
     rect(50, 649, 50, 50,);
     rect(100, 649, 50, 50,);
@@ -274,92 +270,94 @@ function keyPressed() {
   }
   //Character 3 health bar, Ann
   if (key === "a") {
-    if (character3 === true) {
-    character1 = false;
-    character2 = false;
-    character4 = false;
-    fill("red");
-    rect(50, 649, 50, 50,);
-    rect(100, 649, 50, 50,);
-    rect(150, 649, 50, 50,);
-    rect(200, 649, 50, 50,);
-    rect(250, 649, 50, 50,);
+    if(charaAlive === false) {
+      charaAlive = true;
+      character3 = true;
+    }
+    if (character3 && StartGame === true) {
+      fill("red");
+      rect(50, 649, 50, 50,);
+      rect(100, 649, 50, 50,);
+      rect(150, 649, 50, 50,);
+      rect(200, 649, 50, 50,);
+      rect(250, 649, 50, 50,);
 
-    //Move selections
-    fill(153, 0, 76);
-    rect(50, 300, 150, 50);
-    rect(50, 240, 150, 50);
-    rect(50, 360, 150, 50);
-    fill("black")
-    textSize(17);
-    text('2.Wave Dance',54, 320, 150, 50);
-    text('1.Drown',54, 260, 150, 50);
-    text('3.Abyssal Depths',54, 380, 150, 50);
+      //Move selections
+      fill(153, 0, 76);
+      rect(50, 300, 150, 50);
+      rect(50, 240, 150, 50);
+      rect(50, 360, 150, 50);
+      fill("black")
+      textSize(17);
+      text('2.Wave Dance',54, 320, 150, 50);
+      text('1.Drown',54, 260, 150, 50);
+      text('3.Abyssal Depths',54, 380, 150, 50);
 
-    //Ground sprite
-    fill(color(32, 78, 100));
-    ellipse(370, 540, 300, 100);
+      //Ground sprite
+      fill(color(32, 78, 100));
+      ellipse(370, 540, 300, 100);
 
-    //Character Sprite
-    fill("red");
-    ellipse(370, 500, 100, 100);
-    fill("pink");
-    ellipse(370, 500, 50, 50);
+      //Character Sprite
+      fill("red");
+      ellipse(370, 500, 100, 100);
+      fill("pink");
+      ellipse(370, 500, 50, 50);
     }
   
   }
   //Character 4 health bar, Yusuke
   if (key === "y") {
-    if (character4 === true) {
-    character1 = false;
-    character2 = false;
-    character3 = false;
-    fill("blue");
-    rect(50, 649, 50, 50,);
-    rect(100, 649, 50, 50,);
-    rect(150, 649, 50, 50,);
-    rect(200, 649, 50, 50,);
-    rect(250, 649, 50, 50,);
+    if(charaAlive === false) {
+      charaAlive = true;
+      character4 = true;
+    }
+    if (character4 && StartGame === true) {
+      fill("blue");
+      rect(50, 649, 50, 50,);
+      rect(100, 649, 50, 50,);
+      rect(150, 649, 50, 50,);
+      rect(200, 649, 50, 50,);
+      rect(250, 649, 50, 50,);
 
-    //Move selections
-    fill(0, 76, 153);
-    rect(50, 300, 150, 50);
-    rect(50, 240, 150, 50);
-    rect(50, 360, 150, 50);
-    fill("black");
-    textSize(20);
-    text('2.Twilight Time',54, 320, 150, 50);
-    text('1.Slash',54, 260, 150, 50);
-    text('3.Luna Blast',54, 380, 150, 50);
+      //Move selections
+      fill(0, 76, 153);
+      rect(50, 300, 150, 50);
+      rect(50, 240, 150, 50);
+      rect(50, 360, 150, 50);
+      fill("black");
+      textSize(20);
+      text('2.Twilight Time',54, 320, 150, 50);
+      text('1.Slash',54, 260, 150, 50);
+      text('3.Luna Blast',54, 380, 150, 50);
 
-    //Ground sprite
-    fill(color(32, 78, 100));
-    ellipse(370, 540, 300, 100);
+      //Ground sprite
+      fill(color(32, 78, 100));
+      ellipse(370, 540, 300, 100);
 
-    //Character Sprite
-    fill("Blue");
-    ellipse(370, 500, 100, 100);
-    fill("White");
-    ellipse(370, 500, 50, 50);
+      //Character Sprite
+      fill("Blue");
+      ellipse(370, 500, 100, 100);
+      fill("White");
+      ellipse(370, 500, 50, 50);
     }
   }
     
   //Selecting a move
   //Move 1
   if (key === "1") {
-    if (character1 && enemy === true) {
+    if (character1 && StartGame === true) {
       enemyhealth = enemyhealth - 15;
       CheckEnemyHealth();
     }
-    else if (character2 && enemy === true) {
+    else if (character2 && StartGame === true) {
       enemyhealth = enemyhealth - 15;
       CheckEnemyHealth();
     }
-    else if (character3 && enemy === true) {
+    else if (character3 && StartGame === true) {
       enemyhealth = enemyhealth - 15;
       CheckEnemyHealth();
     }
-    else if (character4 && enemy === true) {
+    else if (character4 && StartGame === true) {
       enemyhealth = enemyhealth - 15;
       CheckEnemyHealth();
     }
@@ -367,21 +365,21 @@ function keyPressed() {
     
   //Move 2
   if (key === "2") {
-    if (character1 && enemy === true) {
+    if (character1 && StartGame === true) {
       enemyhealth = enemyhealth - 35;
       health1 = health1 - 10;
       CheckEnemyHealth();
     }
-    else if (character2 && enemy === true) {
+    else if (character2 && StartGame === true) {
       enemyhealth = enemyhealth - 10;
       health2 = health2 + 20;
       CheckEnemyHealth();
     }
-    else if (character3 && enemy === true) {
+    else if (character3 && StartGame === true) {
       enemyhealth = enemyhealth - 22;
       CheckEnemyHealth();
     }
-    else if (character4 && enemy === true) {
+    else if (character4 && StartGame === true) {
       enemyhealth = enemyhealth -10;
       health4 = health4 + 20;
       CheckEnemyHealth();
@@ -390,21 +388,21 @@ function keyPressed() {
     
   //Move3
   if (key === "3") {
-    if (character1 && enemy === true) {
+    if (character1 && StartGame === true) {
       enemyhealth = enemyhealth - 50;
       health1 = health1 - 25;
       CheckEnemyHealth();
     }
-    else if (character2 && enemy === true) {
+    else if (character2 && StartGame === true) {
       enemyhealth = enemyhealth - 35;
       health2 = health2 - 15;
       CheckEnemyHealth();
     }
-    else if (character3 && enemy === true) {
+    else if (character3 && StartGame === true) {
       enemyhealth = enemyhealth - 30;
       CheckEnemyHealth();
     }
-    else if (character4 && enemy === true) {
+    else if (character4 && StartGame === true) {
       enemyhealth = enemyhealth - 50;
       health4 = health4 - 25;
       CheckEnemyHealth();
