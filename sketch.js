@@ -1,6 +1,6 @@
 // RPG battle
 // Corey Klassen
-// Feb, 23rd, 2021
+// March, 1st, 2021
 
 let StartGame = true;
 let enemyhealth = 150;
