@@ -1,7 +1,6 @@
-
 // RPG battle
 // Corey Klassen
-// Feb, 23rd, 2021
+// March, 1st, 2021
 
 let StartGame = true;
 let enemyhealth = 150;
@@ -20,6 +19,8 @@ let charaAlive = false;
 function setup() {
   // Start Screen
   createCanvas(windowWidth, windowHeight);
+  //Starts Music
+  bgMusic.loop();
   //Text boxes with color
   background(196, 202, 255);
   
@@ -49,10 +50,10 @@ function setup() {
   text('Info', 25, 25, 150, 150);
   text('Rules', 650, 405, 150, 150);
   textSize(15);
-  text('Press r to play as Chara1', 25, 100, 200, 200);
-  text('Press j to play as Chara2', 25, 220, 200, 200);
-  text('Press a to play as Chara3', 25, 340, 200, 200);
-  text('Press y to play as Chara4', 25, 460, 200, 200);
+  text('Press r to play as Character1', 25, 100, 200, 200);
+  text('Press j to play as Character2', 25, 220, 200, 200);
+  text('Press a to play as Character3', 25, 340, 200, 200);
+  text('Press y to play as Character4', 25, 460, 200, 200);
   //Explains rules in middle
   text('You will choose 1 character to fight against the enemy. If either you or the enemys health reaches 0 its game over.',
   500, 510, 420, 300);
@@ -83,8 +84,9 @@ function setup() {
   StartGame = false;
 }
 
-//Background and character sprites
+//Background, character sprites, and music
 function preload(){
+  bgMusic = loadSound("assets/LifeGoesOn.mp3");
   Cuboo = loadImage("assets/Cuboo.webp");
   Babara = loadImage("assets/Babara.webp");
   Infernore = loadImage("assets/Infernore.webp");
